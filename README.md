@@ -1,6 +1,6 @@
 # GINFLIX
 
-Projet etudiant de plateforme video deployee sur Kubernetes.
+Projet etudiant de plateforme video deployee sur Kubernetes in Docker.
 
 ## Lecture rapide
 
