@@ -1,0 +1,613 @@
+
+Report Summary
+
+┌──────────────────────────────────────────────────────────────────────────────────┬────────────┬───────────────────┐
+│                                      Target                                      │    Type    │ Misconfigurations │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ .backup/20260309_044402/backend/app/backend-deployment.yaml                      │ kubernetes │         3         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ .backup/20260309_044402/frontend/frontend-admin/app/frontend-admin-deployment.y- │ kubernetes │         3         │
+│ aml                                                                              │            │                   │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ .backup/20260309_044402/frontend/frontend-user/app/frontend-deployment.yaml      │ kubernetes │         3         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ .backup/20260309_044402/streamer/app/streamer-deployment.yaml                    │ kubernetes │         3         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ CiliumNetworkPolicies/allow-dns.yaml                                             │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ CiliumNetworkPolicies/allow-ingress-backend.yaml                                 │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ CiliumNetworkPolicies/allow-ingress-frontend-admin.yaml                          │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ CiliumNetworkPolicies/allow-ingress-frontend.yaml                                │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ CiliumNetworkPolicies/allow-ingress-streamer.yaml                                │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ CiliumNetworkPolicies/backend-allow-mongo.yaml                                   │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ CiliumNetworkPolicies/backend-egress-keycloak.yaml                               │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ CiliumNetworkPolicies/backend-egress-s3.yaml                                     │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ CiliumNetworkPolicies/database-allow-backend.yaml                                │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ CiliumNetworkPolicies/deny-all.yaml                                              │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ CiliumNetworkPolicies/frontend-admin-egress-internet.yaml                        │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ CiliumNetworkPolicies/frontend-egress-internet.yaml                              │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ CiliumNetworkPolicies/streamer-egress-s3.yaml                                    │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ backend/app/backend-deployment.yaml                                              │ kubernetes │         1         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ backend/app/backend-service.yaml                                                 │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ backend/backend-hpa/hpa-backend.yaml                                             │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ backend/serviceaccount/backend-sa.yaml                                           │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ config/ginflix-config.yaml                                                       │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ database/app/database-deployment.yaml                                            │ kubernetes │         3         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ database/app/database-service.yaml                                               │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ database/app/mongo-pv.yaml                                                       │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ database/app/mongo-pvc.yaml                                                      │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ frontend/frontend-admin/app/frontend-admin-deployment.yaml                       │ kubernetes │         1         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ frontend/frontend-admin/app/frontend-admin-service.yaml                          │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ frontend/frontend-user/app/frontend-deployment.yaml                              │ kubernetes │         1         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ frontend/frontend-user/app/frontend-service.yaml                                 │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ frontend/frontend-user/hpa/hpa-frontend.yaml                                     │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ ingress/ingress-admin.yaml                                                       │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ ingress/ingress-ginflix.yaml                                                     │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ loadbalancer/metallb-config.yaml                                                 │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ metrics-server/app/metrics-server-api-registration.yaml                          │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ metrics-server/app/metrics-server-deployment.yaml                                │ kubernetes │         3         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ metrics-server/app/metrics-server-sa.yaml                                        │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ metrics-server/app/metrics-server-service.yaml                                   │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ namespace/namespace-ginflix.yaml                                                 │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ secret/garage-secret.yaml                                                        │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ security/policies/kyverno/require-security-context-audit.yaml                    │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ service-nodeport/service-nodeport.yaml                                           │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ streamer/app/streamer-deployment.yaml                                            │ kubernetes │         1         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ streamer/app/streamer-service.yaml                                               │ kubernetes │         0         │
+├──────────────────────────────────────────────────────────────────────────────────┼────────────┼───────────────────┤
+│ streamer/hpa/hpa-streamer.yaml                                                   │ kubernetes │         0         │
+└──────────────────────────────────────────────────────────────────────────────────┴────────────┴───────────────────┘
+Legend:
+- '-': Not scanned
+- '0': Clean (no security findings detected)
+
+
+.backup/20260309_044402/backend/app/backend-deployment.yaml (kubernetes)
+========================================================================
+Tests: 25 (SUCCESSES: 22, FAILURES: 3)
+Failures: 3 (HIGH: 3, CRITICAL: 0)
+
+KSV-0014 (HIGH): Container 'backend' of Deployment 'backend' should set 'securityContext.readOnlyRootFilesystem' to true
+════════════════════════════════════════
+An immutable root file system prevents applications from writing to their local disk. This can limit intrusions, as attackers will not be able to tamper with the file system or write foreign executables to disk.
+
+See https://avd.aquasec.com/misconfig/ksv-0014
+────────────────────────────────────────
+ .backup/20260309_044402/backend/app/backend-deployment.yaml:22-48
+────────────────────────────────────────
+  22 ┌         - name: backend
+  23 │           image: registry.gin-telecom.ovh/ginflix/backend:latest
+  24 │           imagePullPolicy: IfNotPresent
+  25 │           ports:
+  26 │             - name: grpc
+  27 │               containerPort: 50051
+  28 │             - name: http
+  29 │               containerPort: 8080
+  30 └           envFrom:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0118 (HIGH): container backend in ginflix namespace is using the default security context
+════════════════════════════════════════
+Security context controls the allocation of security parameters for the pod/container/volume, ensuring the appropriate level of protection. Relying on default security context may expose vulnerabilities to potential attacks that rely on privileged access.
+
+See https://avd.aquasec.com/misconfig/ksv-0118
+────────────────────────────────────────
+ .backup/20260309_044402/backend/app/backend-deployment.yaml:22-48
+────────────────────────────────────────
+  22 ┌         - name: backend
+  23 │           image: registry.gin-telecom.ovh/ginflix/backend:latest
+  24 │           imagePullPolicy: IfNotPresent
+  25 │           ports:
+  26 │             - name: grpc
+  27 │               containerPort: 50051
+  28 │             - name: http
+  29 │               containerPort: 8080
+  30 └           envFrom:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0118 (HIGH): deployment backend in ginflix namespace is using the default security context, which allows root privileges
+════════════════════════════════════════
+Security context controls the allocation of security parameters for the pod/container/volume, ensuring the appropriate level of protection. Relying on default security context may expose vulnerabilities to potential attacks that rely on privileged access.
+
+See https://avd.aquasec.com/misconfig/ksv-0118
+────────────────────────────────────────
+ .backup/20260309_044402/backend/app/backend-deployment.yaml:17-48
+────────────────────────────────────────
+  17 ┌     spec:
+  18 │       serviceAccountName: backend-sa
+  19 │       imagePullSecrets:
+  20 │         - name: regcred
+  21 │       containers:
+  22 │         - name: backend
+  23 │           image: registry.gin-telecom.ovh/ginflix/backend:latest
+  24 │           imagePullPolicy: IfNotPresent
+  25 └           ports:
+  ..   
+────────────────────────────────────────
+
+
+
+.backup/20260309_044402/frontend/frontend-admin/app/frontend-admin-deployment.yaml (kubernetes)
+===============================================================================================
+Tests: 25 (SUCCESSES: 22, FAILURES: 3)
+Failures: 3 (HIGH: 3, CRITICAL: 0)
+
+KSV-0014 (HIGH): Container 'frontend-admin' of Deployment 'frontend-admin' should set 'securityContext.readOnlyRootFilesystem' to true
+════════════════════════════════════════
+An immutable root file system prevents applications from writing to their local disk. This can limit intrusions, as attackers will not be able to tamper with the file system or write foreign executables to disk.
+
+See https://avd.aquasec.com/misconfig/ksv-0014
+────────────────────────────────────────
+ .backup/20260309_044402/frontend/frontend-admin/app/frontend-admin-deployment.yaml:21-28
+────────────────────────────────────────
+  21 ┌         - name: frontend-admin
+  22 │           image: registry.gin-telecom.ovh/ginflix/frontend-admin:latest
+  23 │           imagePullPolicy: IfNotPresent
+  24 │           ports:
+  25 │             - containerPort: 80
+  26 │           envFrom:
+  27 │             - configMapRef:
+  28 └                 name: ginflix-config
+────────────────────────────────────────
+
+
+KSV-0118 (HIGH): container frontend-admin in ginflix namespace is using the default security context
+════════════════════════════════════════
+Security context controls the allocation of security parameters for the pod/container/volume, ensuring the appropriate level of protection. Relying on default security context may expose vulnerabilities to potential attacks that rely on privileged access.
+
+See https://avd.aquasec.com/misconfig/ksv-0118
+────────────────────────────────────────
+ .backup/20260309_044402/frontend/frontend-admin/app/frontend-admin-deployment.yaml:21-28
+────────────────────────────────────────
+  21 ┌         - name: frontend-admin
+  22 │           image: registry.gin-telecom.ovh/ginflix/frontend-admin:latest
+  23 │           imagePullPolicy: IfNotPresent
+  24 │           ports:
+  25 │             - containerPort: 80
+  26 │           envFrom:
+  27 │             - configMapRef:
+  28 └                 name: ginflix-config
+────────────────────────────────────────
+
+
+KSV-0118 (HIGH): deployment frontend-admin in ginflix namespace is using the default security context, which allows root privileges
+════════════════════════════════════════
+Security context controls the allocation of security parameters for the pod/container/volume, ensuring the appropriate level of protection. Relying on default security context may expose vulnerabilities to potential attacks that rely on privileged access.
+
+See https://avd.aquasec.com/misconfig/ksv-0118
+────────────────────────────────────────
+ .backup/20260309_044402/frontend/frontend-admin/app/frontend-admin-deployment.yaml:17-28
+────────────────────────────────────────
+  17 ┌     spec:
+  18 │       imagePullSecrets:
+  19 │         - name: regcred
+  20 │       containers:
+  21 │         - name: frontend-admin
+  22 │           image: registry.gin-telecom.ovh/ginflix/frontend-admin:latest
+  23 │           imagePullPolicy: IfNotPresent
+  24 │           ports:
+  25 └             - containerPort: 80
+  ..   
+────────────────────────────────────────
+
+
+
+.backup/20260309_044402/frontend/frontend-user/app/frontend-deployment.yaml (kubernetes)
+========================================================================================
+Tests: 25 (SUCCESSES: 22, FAILURES: 3)
+Failures: 3 (HIGH: 3, CRITICAL: 0)
+
+KSV-0014 (HIGH): Container 'frontend' of Deployment 'frontend' should set 'securityContext.readOnlyRootFilesystem' to true
+════════════════════════════════════════
+An immutable root file system prevents applications from writing to their local disk. This can limit intrusions, as attackers will not be able to tamper with the file system or write foreign executables to disk.
+
+See https://avd.aquasec.com/misconfig/ksv-0014
+────────────────────────────────────────
+ .backup/20260309_044402/frontend/frontend-user/app/frontend-deployment.yaml:21-35
+────────────────────────────────────────
+  21 ┌         - name: frontend
+  22 │           image: registry.gin-telecom.ovh/ginflix/frontend:latest
+  23 │           imagePullPolicy: IfNotPresent
+  24 │           ports:
+  25 │             - containerPort: 80
+  26 │           envFrom:
+  27 │             - configMapRef:
+  28 │                 name: ginflix-config
+  29 └           resources:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0118 (HIGH): container frontend in ginflix namespace is using the default security context
+════════════════════════════════════════
+Security context controls the allocation of security parameters for the pod/container/volume, ensuring the appropriate level of protection. Relying on default security context may expose vulnerabilities to potential attacks that rely on privileged access.
+
+See https://avd.aquasec.com/misconfig/ksv-0118
+────────────────────────────────────────
+ .backup/20260309_044402/frontend/frontend-user/app/frontend-deployment.yaml:21-35
+────────────────────────────────────────
+  21 ┌         - name: frontend
+  22 │           image: registry.gin-telecom.ovh/ginflix/frontend:latest
+  23 │           imagePullPolicy: IfNotPresent
+  24 │           ports:
+  25 │             - containerPort: 80
+  26 │           envFrom:
+  27 │             - configMapRef:
+  28 │                 name: ginflix-config
+  29 └           resources:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0118 (HIGH): deployment frontend in ginflix namespace is using the default security context, which allows root privileges
+════════════════════════════════════════
+Security context controls the allocation of security parameters for the pod/container/volume, ensuring the appropriate level of protection. Relying on default security context may expose vulnerabilities to potential attacks that rely on privileged access.
+
+See https://avd.aquasec.com/misconfig/ksv-0118
+────────────────────────────────────────
+ .backup/20260309_044402/frontend/frontend-user/app/frontend-deployment.yaml:17-35
+────────────────────────────────────────
+  17 ┌     spec:
+  18 │       imagePullSecrets:
+  19 │         - name: regcred
+  20 │       containers:
+  21 │         - name: frontend
+  22 │           image: registry.gin-telecom.ovh/ginflix/frontend:latest
+  23 │           imagePullPolicy: IfNotPresent
+  24 │           ports:
+  25 └             - containerPort: 80
+  ..   
+────────────────────────────────────────
+
+
+
+.backup/20260309_044402/streamer/app/streamer-deployment.yaml (kubernetes)
+==========================================================================
+Tests: 25 (SUCCESSES: 22, FAILURES: 3)
+Failures: 3 (HIGH: 3, CRITICAL: 0)
+
+KSV-0014 (HIGH): Container 'streamer' of Deployment 'streamer' should set 'securityContext.readOnlyRootFilesystem' to true
+════════════════════════════════════════
+An immutable root file system prevents applications from writing to their local disk. This can limit intrusions, as attackers will not be able to tamper with the file system or write foreign executables to disk.
+
+See https://avd.aquasec.com/misconfig/ksv-0014
+────────────────────────────────────────
+ .backup/20260309_044402/streamer/app/streamer-deployment.yaml:21-37
+────────────────────────────────────────
+  21 ┌         - name: streamer
+  22 │           image: registry.gin-telecom.ovh/ginflix/streamer:latest
+  23 │           imagePullPolicy: IfNotPresent
+  24 │           ports:
+  25 │             - containerPort: 8080
+  26 │           envFrom:
+  27 │             - configMapRef:
+  28 │                 name: ginflix-config
+  29 └             - secretRef:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0118 (HIGH): container streamer in ginflix namespace is using the default security context
+════════════════════════════════════════
+Security context controls the allocation of security parameters for the pod/container/volume, ensuring the appropriate level of protection. Relying on default security context may expose vulnerabilities to potential attacks that rely on privileged access.
+
+See https://avd.aquasec.com/misconfig/ksv-0118
+────────────────────────────────────────
+ .backup/20260309_044402/streamer/app/streamer-deployment.yaml:21-37
+────────────────────────────────────────
+  21 ┌         - name: streamer
+  22 │           image: registry.gin-telecom.ovh/ginflix/streamer:latest
+  23 │           imagePullPolicy: IfNotPresent
+  24 │           ports:
+  25 │             - containerPort: 8080
+  26 │           envFrom:
+  27 │             - configMapRef:
+  28 │                 name: ginflix-config
+  29 └             - secretRef:
+  ..   
+────────────────────────────────────────
+
+
+KSV-0118 (HIGH): deployment streamer in ginflix namespace is using the default security context, which allows root privileges
+════════════════════════════════════════
+Security context controls the allocation of security parameters for the pod/container/volume, ensuring the appropriate level of protection. Relying on default security context may expose vulnerabilities to potential attacks that rely on privileged access.
+
+See https://avd.aquasec.com/misconfig/ksv-0118
+────────────────────────────────────────
+ .backup/20260309_044402/streamer/app/streamer-deployment.yaml:17-37
+────────────────────────────────────────
+  17 ┌     spec:
+  18 │       imagePullSecrets:
+  19 │         - name: regcred
+  20 │       containers:
+  21 │         - name: streamer
+  22 │           image: registry.gin-telecom.ovh/ginflix/streamer:latest
+  23 │           imagePullPolicy: IfNotPresent
+  24 │           ports:
+  25 └             - containerPort: 8080
+  ..   
+────────────────────────────────────────
+
+
+
+backend/app/backend-deployment.yaml (kubernetes)
+================================================
+Tests: 24 (SUCCESSES: 23, FAILURES: 1)
+Failures: 1 (HIGH: 1, CRITICAL: 0)
+
+KSV-0014 (HIGH): Container 'backend' of Deployment 'backend' should set 'securityContext.readOnlyRootFilesystem' to true
+════════════════════════════════════════
+An immutable root file system prevents applications from writing to their local disk. This can limit intrusions, as attackers will not be able to tamper with the file system or write foreign executables to disk.
+
+See https://avd.aquasec.com/misconfig/ksv-0014
+────────────────────────────────────────
+ backend/app/backend-deployment.yaml:30-63
+────────────────────────────────────────
+  30 ┌         - name: backend
+  31 │           image: registry.gin-telecom.ovh/ginflix/backend:latest
+  32 │           imagePullPolicy: IfNotPresent
+  33 │           ports:
+  34 │             - name: grpc
+  35 │               containerPort: 50051
+  36 │             - name: http
+  37 │               containerPort: 8080
+  38 └           envFrom:
+  ..   
+────────────────────────────────────────
+
+
+
+database/app/database-deployment.yaml (kubernetes)
+==================================================
+Tests: 25 (SUCCESSES: 22, FAILURES: 3)
+Failures: 3 (HIGH: 3, CRITICAL: 0)
+
+KSV-0014 (HIGH): Container 'mongo' of Deployment 'database' should set 'securityContext.readOnlyRootFilesystem' to true
+════════════════════════════════════════
+An immutable root file system prevents applications from writing to their local disk. This can limit intrusions, as attackers will not be able to tamper with the file system or write foreign executables to disk.
+
+See https://avd.aquasec.com/misconfig/ksv-0014
+────────────────────────────────────────
+ database/app/database-deployment.yaml:19-25
+────────────────────────────────────────
+  19 ┌         - name: mongo
+  20 │           image: mongo:6.0
+  21 │           ports:
+  22 │             - containerPort: 27017
+  23 │           volumeMounts:
+  24 │             - name: mongo-data
+  25 └               mountPath: /data/db
+────────────────────────────────────────
+
+
+KSV-0118 (HIGH): container database in ginflix namespace is using the default security context
+════════════════════════════════════════
+Security context controls the allocation of security parameters for the pod/container/volume, ensuring the appropriate level of protection. Relying on default security context may expose vulnerabilities to potential attacks that rely on privileged access.
+
+See https://avd.aquasec.com/misconfig/ksv-0118
+────────────────────────────────────────
+ database/app/database-deployment.yaml:19-25
+────────────────────────────────────────
+  19 ┌         - name: mongo
+  20 │           image: mongo:6.0
+  21 │           ports:
+  22 │             - containerPort: 27017
+  23 │           volumeMounts:
+  24 │             - name: mongo-data
+  25 └               mountPath: /data/db
+────────────────────────────────────────
+
+
+KSV-0118 (HIGH): deployment database in ginflix namespace is using the default security context, which allows root privileges
+════════════════════════════════════════
+Security context controls the allocation of security parameters for the pod/container/volume, ensuring the appropriate level of protection. Relying on default security context may expose vulnerabilities to potential attacks that rely on privileged access.
+
+See https://avd.aquasec.com/misconfig/ksv-0118
+────────────────────────────────────────
+ database/app/database-deployment.yaml:17-29
+────────────────────────────────────────
+  17 ┌     spec:
+  18 │       containers:
+  19 │         - name: mongo
+  20 │           image: mongo:6.0
+  21 │           ports:
+  22 │             - containerPort: 27017
+  23 │           volumeMounts:
+  24 │             - name: mongo-data
+  25 └               mountPath: /data/db
+  ..   
+────────────────────────────────────────
+
+
+
+frontend/frontend-admin/app/frontend-admin-deployment.yaml (kubernetes)
+=======================================================================
+Tests: 24 (SUCCESSES: 23, FAILURES: 1)
+Failures: 1 (HIGH: 1, CRITICAL: 0)
+
+KSV-0014 (HIGH): Container 'frontend-admin' of Deployment 'frontend-admin' should set 'securityContext.readOnlyRootFilesystem' to true
+════════════════════════════════════════
+An immutable root file system prevents applications from writing to their local disk. This can limit intrusions, as attackers will not be able to tamper with the file system or write foreign executables to disk.
+
+See https://avd.aquasec.com/misconfig/ksv-0014
+────────────────────────────────────────
+ frontend/frontend-admin/app/frontend-admin-deployment.yaml:29-47
+────────────────────────────────────────
+  29 ┌         - name: frontend-admin
+  30 │           image: registry.gin-telecom.ovh/ginflix/frontend-admin:latest
+  31 │           imagePullPolicy: IfNotPresent
+  32 │           ports:
+  33 │             - containerPort: 80
+  34 │           envFrom:
+  35 │             - configMapRef:
+  36 │                 name: ginflix-config
+  37 └             - secretRef:
+  ..   
+────────────────────────────────────────
+
+
+
+frontend/frontend-user/app/frontend-deployment.yaml (kubernetes)
+================================================================
+Tests: 24 (SUCCESSES: 23, FAILURES: 1)
+Failures: 1 (HIGH: 1, CRITICAL: 0)
+
+KSV-0014 (HIGH): Container 'frontend' of Deployment 'frontend' should set 'securityContext.readOnlyRootFilesystem' to true
+════════════════════════════════════════
+An immutable root file system prevents applications from writing to their local disk. This can limit intrusions, as attackers will not be able to tamper with the file system or write foreign executables to disk.
+
+See https://avd.aquasec.com/misconfig/ksv-0014
+────────────────────────────────────────
+ frontend/frontend-user/app/frontend-deployment.yaml:29-47
+────────────────────────────────────────
+  29 ┌         - name: frontend
+  30 │           image: registry.gin-telecom.ovh/ginflix/frontend:latest
+  31 │           imagePullPolicy: IfNotPresent
+  32 │           ports:
+  33 │             - containerPort: 80
+  34 │           envFrom:
+  35 │             - configMapRef:
+  36 │                 name: ginflix-config
+  37 └             - secretRef:
+  ..   
+────────────────────────────────────────
+
+
+
+metrics-server/app/metrics-server-deployment.yaml (kubernetes)
+==============================================================
+Tests: 25 (SUCCESSES: 22, FAILURES: 3)
+Failures: 3 (HIGH: 3, CRITICAL: 0)
+
+KSV-0014 (HIGH): Container 'metrics-server' of Deployment 'metrics-server' should set 'securityContext.readOnlyRootFilesystem' to true
+════════════════════════════════════════
+An immutable root file system prevents applications from writing to their local disk. This can limit intrusions, as attackers will not be able to tamper with the file system or write foreign executables to disk.
+
+See https://avd.aquasec.com/misconfig/ksv-0014
+────────────────────────────────────────
+ metrics-server/app/metrics-server-deployment.yaml:19-42
+────────────────────────────────────────
+  19 ┌       - name: metrics-server
+  20 │         image: registry.k8s.io/metrics-server/metrics-server:v0.8.0
+  21 │         args:
+  22 │         - --cert-dir=/tmp
+  23 │         - --secure-port=4443
+  24 │         - --kubelet-insecure-tls
+  25 │         - --kubelet-preferred-address-types=InternalIP,Hostname,InternalDNS,ExternalDNS,ExternalIP
+  26 │         ports:
+  27 └         - containerPort: 4443
+  ..   
+────────────────────────────────────────
+
+
+KSV-0118 (HIGH): container metrics-server in kube-system namespace is using the default security context
+════════════════════════════════════════
+Security context controls the allocation of security parameters for the pod/container/volume, ensuring the appropriate level of protection. Relying on default security context may expose vulnerabilities to potential attacks that rely on privileged access.
+
+See https://avd.aquasec.com/misconfig/ksv-0118
+────────────────────────────────────────
+ metrics-server/app/metrics-server-deployment.yaml:19-42
+────────────────────────────────────────
+  19 ┌       - name: metrics-server
+  20 │         image: registry.k8s.io/metrics-server/metrics-server:v0.8.0
+  21 │         args:
+  22 │         - --cert-dir=/tmp
+  23 │         - --secure-port=4443
+  24 │         - --kubelet-insecure-tls
+  25 │         - --kubelet-preferred-address-types=InternalIP,Hostname,InternalDNS,ExternalDNS,ExternalIP
+  26 │         ports:
+  27 └         - containerPort: 4443
+  ..   
+────────────────────────────────────────
+
+
+KSV-0118 (HIGH): deployment metrics-server in kube-system namespace is using the default security context, which allows root privileges
+════════════════════════════════════════
+Security context controls the allocation of security parameters for the pod/container/volume, ensuring the appropriate level of protection. Relying on default security context may expose vulnerabilities to potential attacks that rely on privileged access.
+
+See https://avd.aquasec.com/misconfig/ksv-0118
+────────────────────────────────────────
+ metrics-server/app/metrics-server-deployment.yaml:16-42
+────────────────────────────────────────
+  16 ┌     spec:
+  17 │       serviceAccountName: metrics-server
+  18 │       containers:
+  19 │       - name: metrics-server
+  20 │         image: registry.k8s.io/metrics-server/metrics-server:v0.8.0
+  21 │         args:
+  22 │         - --cert-dir=/tmp
+  23 │         - --secure-port=4443
+  24 └         - --kubelet-insecure-tls
+  ..   
+────────────────────────────────────────
+
+
+
+streamer/app/streamer-deployment.yaml (kubernetes)
+==================================================
+Tests: 24 (SUCCESSES: 23, FAILURES: 1)
+Failures: 1 (HIGH: 1, CRITICAL: 0)
+
+KSV-0014 (HIGH): Container 'streamer' of Deployment 'streamer' should set 'securityContext.readOnlyRootFilesystem' to true
+════════════════════════════════════════
+An immutable root file system prevents applications from writing to their local disk. This can limit intrusions, as attackers will not be able to tamper with the file system or write foreign executables to disk.
+
+See https://avd.aquasec.com/misconfig/ksv-0014
+────────────────────────────────────────
+ streamer/app/streamer-deployment.yaml:29-52
+────────────────────────────────────────
+  29 ┌         - name: streamer
+  30 │           image: registry.gin-telecom.ovh/ginflix/streamer:latest
+  31 │           imagePullPolicy: IfNotPresent
+  32 │           ports:
+  33 │             - containerPort: 8080
+  34 │           envFrom:
+  35 │             - configMapRef:
+  36 │                 name: ginflix-config
+  37 └             - secretRef:
+  ..   
+────────────────────────────────────────
+
+

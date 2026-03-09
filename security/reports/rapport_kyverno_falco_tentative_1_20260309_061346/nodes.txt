@@ -1,0 +1,4 @@
+NAME                    STATUS   ROLES           AGE   VERSION
+ginflix-control-plane   Ready    control-plane   96d   v1.25.2
+ginflix-worker          Ready    <none>          96d   v1.25.2
+ginflix-worker2         Ready    <none>          96d   v1.25.2

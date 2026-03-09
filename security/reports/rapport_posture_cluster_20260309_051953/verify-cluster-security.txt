@@ -1,0 +1,30 @@
+[PASS] command 'kubectl' available
+[PASS] command 'curl' available
+[PASS] kubectl cluster-info reachable
+[PASS] namespace ginflix enforce=baseline label present
+[PASS] NetworkPolicy default-deny present
+[PASS] CiliumNetworkPolicy allow-dns present
+[PASS] Secret ginflix-app-secrets present
+[PASS] ConfigMap ginflix-config does not expose KEYCLOAK_CLIENT_ID
+[PASS] ConfigMap ginflix-config does not expose KEYCLOAK_REALM
+[PASS] ConfigMap ginflix-config does not expose KEYCLOAK_HOST
+[PASS] ConfigMap ginflix-config does not expose MONGO_URI
+[PASS] backend: {.spec.template.spec.automountServiceAccountToken} == false
+[PASS] backend: {.spec.template.spec.containers[0].securityContext.allowPrivilegeEscalation} == false
+[PASS] backend: {.spec.template.spec.securityContext.seccompProfile.type} == RuntimeDefault
+[PASS] frontend: {.spec.template.spec.automountServiceAccountToken} == false
+[PASS] frontend: {.spec.template.spec.containers[0].securityContext.allowPrivilegeEscalation} == false
+[PASS] frontend: {.spec.template.spec.securityContext.seccompProfile.type} == RuntimeDefault
+[PASS] frontend-admin: {.spec.template.spec.automountServiceAccountToken} == false
+[PASS] frontend-admin: {.spec.template.spec.containers[0].securityContext.allowPrivilegeEscalation} == false
+[PASS] frontend-admin: {.spec.template.spec.securityContext.seccompProfile.type} == RuntimeDefault
+[PASS] streamer: {.spec.template.spec.automountServiceAccountToken} == false
+[PASS] streamer: {.spec.template.spec.containers[0].securityContext.allowPrivilegeEscalation} == false
+[PASS] streamer: {.spec.template.spec.securityContext.seccompProfile.type} == RuntimeDefault
+[PASS] backend: {.spec.template.spec.containers[0].securityContext.capabilities.drop[0]} == ALL
+[PASS] streamer: {.spec.template.spec.containers[0].securityContext.capabilities.drop[0]} == ALL
+[PASS] HTTP / via 172.18.0.200 returns 200 (attempt 1)
+[PASS] HTTP /admin via 172.18.0.200 returns 200 (attempt 1)
+[PASS] HTTP /api/videos via 172.18.0.200 returns 200 (attempt 1)
+
+Summary: 28 pass, 0 fail

@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-admin
+  namespace: ginflix
+  labels:
+    app: frontend-admin
+    security.ginflix.io/hardening: "enabled"
+  annotations:
+    security.ginflix.io/notes: "Durcissement compatible Nginx admin (sans drop ALL)."
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend-admin
+  template:
+    metadata:
+      labels:
+        app: frontend-admin
+    spec:
+      # Ce frontend n'a pas besoin d'acces API Kubernetes.
+      automountServiceAccountToken: false
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: frontend-admin
+          image: registry.gin-telecom.ovh/ginflix/frontend-admin:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: ginflix-config
+            - secretRef:
+                name: ginflix-app-secrets
+          securityContext:
+            allowPrivilegeEscalation: false
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "200m"
+              memory: "256Mi"

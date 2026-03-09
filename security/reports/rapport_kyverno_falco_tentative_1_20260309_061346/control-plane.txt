@@ -1,0 +1,3 @@
+kube-controller-manager-ginflix-control-plane   1/1     Running   168 (7m21s ago)   70m
+kube-scheduler-ginflix-control-plane            1/1     Running   170 (9m44s ago)   68m
+metrics-server-7cb96fcdd-2x2r7                  1/1     Running   16 (9m15s ago)    69m

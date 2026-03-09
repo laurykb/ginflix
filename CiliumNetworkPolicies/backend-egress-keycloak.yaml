@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: backend-egress-keycloak
+  namespace: ginflix
+spec:
+  podSelector:
+    matchLabels:
+      app: backend
+  egress:
+  - to:
+    - ipBlock:
+        cidr: 137.194.0.0/16      # Sous-réseau Télécom Paris
+    ports:
+    - port: 443
+  policyTypes: [Egress]

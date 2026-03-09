@@ -1,0 +1,6 @@
+-rw-r--r--@ 1 laury  staff   518 Mar  9 07:54 .github/workflows/security-gitleaks.yml
+-rw-r--r--@ 1 laury  staff   695 Mar  9 07:54 .github/workflows/security-kics.yml
+-rw-r--r--@ 1 laury  staff   228 Mar  9 07:54 .gitleaks.toml
+-rw-r--r--@ 1 laury  staff  1176 Mar  9 07:58 README.md
+-rw-r--r--@ 1 laury  staff  1954 Mar  9 07:58 security/README.md
+-rw-r--r--@ 1 laury  staff  2375 Mar  9 07:58 security/STATUS.md

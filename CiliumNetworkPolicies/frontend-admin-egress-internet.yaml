@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: frontend-admin-egress-internet
+  namespace: ginflix
+spec:
+  podSelector:
+    matchLabels:
+      app: frontend-admin
+  egress:
+  - to:
+    - ipBlock:
+        cidr: 0.0.0.0/0
+    ports:
+    - port: 443
+  policyTypes: [Egress]

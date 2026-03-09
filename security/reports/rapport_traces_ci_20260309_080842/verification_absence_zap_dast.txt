@@ -1,0 +1,2 @@
+=== Recherche references ZAP/DAST ===
+security/reports/rapport_traces_ci_20260309_080842/verification_absence_zap_dast.txt:1:=== Recherche references ZAP/DAST ===

@@ -1,0 +1,42 @@
+[PASS] command 'kubectl' available
+[PASS] command 'curl' available
+[PASS] kubectl cluster-info reachable
+[PASS] namespace ginflix enforce=baseline label present
+[PASS] NetworkPolicy default-deny present
+[PASS] CiliumNetworkPolicy allow-dns present
+[PASS] Secret ginflix-app-secrets present
+[PASS] ConfigMap ginflix-config does not expose KEYCLOAK_CLIENT_ID
+[PASS] ConfigMap ginflix-config does not expose KEYCLOAK_REALM
+[PASS] ConfigMap ginflix-config does not expose KEYCLOAK_HOST
+[PASS] ConfigMap ginflix-config does not expose MONGO_URI
+[PASS] backend: {.spec.template.spec.automountServiceAccountToken} == false
+[PASS] backend: {.spec.template.spec.containers[0].securityContext.allowPrivilegeEscalation} == false
+[PASS] backend: {.spec.template.spec.securityContext.seccompProfile.type} == RuntimeDefault
+[PASS] frontend: {.spec.template.spec.automountServiceAccountToken} == false
+[PASS] frontend: {.spec.template.spec.containers[0].securityContext.allowPrivilegeEscalation} == false
+[PASS] frontend: {.spec.template.spec.securityContext.seccompProfile.type} == RuntimeDefault
+[PASS] frontend-admin: {.spec.template.spec.automountServiceAccountToken} == false
+[PASS] frontend-admin: {.spec.template.spec.containers[0].securityContext.allowPrivilegeEscalation} == false
+[PASS] frontend-admin: {.spec.template.spec.securityContext.seccompProfile.type} == RuntimeDefault
+[PASS] streamer: {.spec.template.spec.automountServiceAccountToken} == false
+[PASS] streamer: {.spec.template.spec.containers[0].securityContext.allowPrivilegeEscalation} == false
+[PASS] streamer: {.spec.template.spec.securityContext.seccompProfile.type} == RuntimeDefault
+[PASS] backend: {.spec.template.spec.containers[0].securityContext.capabilities.drop[0]} == ALL
+[PASS] streamer: {.spec.template.spec.containers[0].securityContext.capabilities.drop[0]} == ALL
+curl: (7) Failed to connect to 172.18.0.200 port 80 after 18323 ms: No route to host
+curl: (7) Failed to connect to 172.18.0.200 port 80 after 3064 ms: No route to host
+curl: (7) Failed to connect to 172.18.0.200 port 80 after 1058 ms: No route to host
+curl: (7) Failed to connect to 172.18.0.200 port 80 after 1057 ms: No route to host
+[FAIL] HTTP / via 172.18.0.200 returns 000 after retries
+curl: (7) Failed to connect to 172.18.0.200 port 80 after 1037 ms: No route to host
+curl: (7) Failed to connect to 172.18.0.200 port 80 after 1053 ms: No route to host
+curl: (7) Failed to connect to 172.18.0.200 port 80 after 1062 ms: No route to host
+curl: (7) Failed to connect to 172.18.0.200 port 80 after 1053 ms: No route to host
+[FAIL] HTTP /admin via 172.18.0.200 returns 000 after retries
+curl: (7) Failed to connect to 172.18.0.200 port 80 after 1058 ms: No route to host
+curl: (7) Failed to connect to 172.18.0.200 port 80 after 1055 ms: No route to host
+curl: (7) Failed to connect to 172.18.0.200 port 80 after 1059 ms: No route to host
+curl: (7) Failed to connect to 172.18.0.200 port 80 after 928 ms: No route to host
+[FAIL] HTTP /api/videos via 172.18.0.200 returns 000 after retries
+
+Summary: 25 pass, 3 fail

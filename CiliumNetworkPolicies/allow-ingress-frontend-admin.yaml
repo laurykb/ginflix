@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-ingress-frontend-admin
+  namespace: ginflix
+spec:
+  podSelector:
+    matchLabels:
+      app: frontend-admin
+  ingress:
+  - from:
+    - namespaceSelector:
+        {}
+    ports:
+    - port: 80

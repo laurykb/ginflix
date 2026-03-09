@@ -1,0 +1,10 @@
+== KYVERNO CRD CLEANUP (targeted) ==
+KYVERNO_EXIT=1
+== FALCO STABILITY WAIT ==
+WAIT_1:cm=false,sched=true
+WAIT_2:cm=false,sched=true
+WAIT_3:cm=false,sched=true
+WAIT_4:cm=false,sched=true
+WAIT_5:cm=false,sched=true
+WAIT_6:cm=false,sched=true
+FALCO_EXIT=1

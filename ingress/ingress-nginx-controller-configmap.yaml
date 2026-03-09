@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ingress-nginx-controller
+  namespace: ingress-nginx
+data:
+  global-allowed-response-headers: "X-Frame-Options,X-Content-Type-Options,Referrer-Policy,Permissions-Policy,Content-Security-Policy"

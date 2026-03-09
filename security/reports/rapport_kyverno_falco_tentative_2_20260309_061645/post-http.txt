@@ -1,0 +1,3 @@
+POST_/:200
+POST_/admin:200
+POST_/api/videos:200

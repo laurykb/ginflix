@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-ingress-streamer
+  namespace: ginflix
+spec:
+  podSelector:
+    matchLabels:
+      app: streamer
+  ingress:
+  - from:
+    - namespaceSelector:
+        {}
+    ports:
+    - port: 8080

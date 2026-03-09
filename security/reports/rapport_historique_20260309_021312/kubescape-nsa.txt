@@ -1,0 +1,53 @@
+
+
+──────────────────────────────────────────────────
+
+Framework scanned: NSA
+
+╭─────────────────┬────╮
+│        Controls │ 26 │
+│          Passed │ 7  │
+│          Failed │ 14 │
+│ Action Required │ 5  │
+╰─────────────────┴────╯
+
+Failed resources by severity:
+
+╭──────────┬────╮
+│ Critical │ 0  │
+│     High │ 26 │
+│   Medium │ 63 │
+│      Low │ 9  │
+╰──────────┴────╯
+
+Run with '--verbose'/'-v' to see control failures for each resource.
+
+╭──────────┬─────────────────────────────────────────────────┬──────────────────┬───────────────┬────────────────────╮
+│ Severity │ Control name                                    │ Failed resources │ All Resources │ Compliance score   │
+├──────────┼─────────────────────────────────────────────────┼──────────────────┼───────────────┼────────────────────┤
+│ Critical │ Disable anonymous access to Kubelet service     │         0        │       0       │ Action Required ** │
+│ Critical │ Enforce Kubelet client TLS authentication       │         0        │       0       │ Action Required ** │
+│   High   │ Applications credentials in configuration files │         4        │       29      │         86%        │
+│   High   │ HostNetwork access                              │         1        │       15      │         93%        │
+│   High   │ Insecure capabilities                           │         1        │       15      │         93%        │
+│   High   │ Ensure CPU limits are set                       │        12        │       15      │         20%        │
+│   High   │ Ensure memory limits are set                    │         8        │       15      │         47%        │
+│  Medium  │ Non-root containers                             │        12        │       15      │         20%        │
+│  Medium  │ Allow privilege escalation                      │         6        │       15      │         60%        │
+│  Medium  │ Ingress and Egress blocked                      │        10        │       27      │         63%        │
+│  Medium  │ Automatic mapping of service account            │        19        │       35      │         46%        │
+│  Medium  │ Container hostPort                              │         2        │       15      │         87%        │
+│  Medium  │ Cluster internal networking                     │         6        │       8       │         25%        │
+│  Medium  │ Linux hardening                                 │         7        │       15      │         53%        │
+│  Medium  │ Secret/etcd encryption enabled                  │         0        │       0       │  Action Required * │
+│  Medium  │ Audit logs enabled                              │         0        │       0       │  Action Required * │
+│  Medium  │ Nginx Ingress Controller End of Life            │         1        │       15      │         93%        │
+│    Low   │ Immutable container filesystem                  │         9        │       15      │         40%        │
+│    Low   │ PSP enabled                                     │         0        │       0       │  Action Required * │
+├──────────┼─────────────────────────────────────────────────┼──────────────────┼───────────────┼────────────────────┤
+│          │                 Resource Summary                │        37        │      111      │       58.71%       │
+╰──────────┴─────────────────────────────────────────────────┴──────────────────┴───────────────┴────────────────────╯
+
+🚨 * failed to get cloud provider, cluster: kind-ginflix
+🚨 ** This control is scanned exclusively by the Kubescape operator, not the Kubescape CLI. Install the Kubescape operator:
+     https://kubescape.io/docs/install-operator/.

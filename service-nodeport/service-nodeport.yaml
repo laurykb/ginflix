@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: ginflix
+spec:
+  type: NodePort
+  selector:
+    app: frontend
+  ports:
+    - name: http
+      port: 80          # port logique dans le cluster
+      targetPort: 80    # port du container frontend
+      nodePort: 30080   # port exposé sur la VM
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: ginflix
+spec:
+  type: NodePort
+  selector:
+    app: backend
+  ports:
+    - name: http
+      port: 80           # port logique
+      targetPort: 8080   # backend écoute en HTTP sur :8080
+      nodePort: 30081    # port exposé sur la VM
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: streamer
+  namespace: ginflix
+spec:
+  type: NodePort
+  selector:
+    app: streamer
+  ports:
+    - name: http
+      port: 80           # port logique
+      targetPort: 8080   # streamer écoute en HTTP sur :8080
+      nodePort: 30082    # port exposé sur la VM

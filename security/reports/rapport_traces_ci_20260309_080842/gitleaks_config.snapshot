@@ -1,0 +1,11 @@
+title = "GINFLIX gitleaks config"
+
+[allowlist]
+description = "False positives or controlled files"
+paths = [
+  '''security/reports/''',
+  '''kind-10-private-key\.pem''',
+  '''.*\.crt$''',
+  '''.*\.key$''',
+  '''\.DS_Store$'''
+]

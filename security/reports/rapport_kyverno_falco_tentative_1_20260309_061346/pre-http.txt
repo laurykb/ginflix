@@ -1,0 +1,3 @@
+PRE_/:200
+PRE_/admin:200
+PRE_/api/videos:200

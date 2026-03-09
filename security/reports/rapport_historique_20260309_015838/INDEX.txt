@@ -1,0 +1,9 @@
+Baseline timestamp: 20260309_015838
+Reports dir: /home/ubuntu/ginflix/security/reports/20260309_015838
+INDEX.txt
+kube-bench.txt
+kubescape-nsa.json
+kubescape-nsa.txt
+trivy-config-high-critical.txt
+trivy-config.json
+trivy-k8s-ginflix-summary.txt

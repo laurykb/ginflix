@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: security-headers
+  namespace: ginflix
+data:
+  X-Frame-Options: "SAMEORIGIN"
+  X-Content-Type-Options: "nosniff"
+  Referrer-Policy: "strict-origin-when-cross-origin"
+  Permissions-Policy: "camera=(), microphone=(), geolocation=()"
+  Content-Security-Policy: "default-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self' http://ginflix10.gin-telecom.ovh; frame-ancestors 'self';"

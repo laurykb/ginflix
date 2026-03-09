@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Local secrets/keys
+*.pem
+*.key
+*.crt
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Optional local env files
+.env
+.env.*
+
+# VS Code local
+.vscode/*.log

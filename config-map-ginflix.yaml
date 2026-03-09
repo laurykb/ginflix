@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ginflix-config
+  namespace: ginflix
+data:
+  BACKEND_URL: "https://ginflix10.gin-telecom.ovh"
+  # Keep base host only: frontend appends "/stream?file=..." itself.
+  STREAM_URL: "https://ginflix10.gin-telecom.ovh"
+
+  GARAGE_BUCKET: "ginflix10"
+  GARAGE_ENDPOINT: "s3.gin-telecom.ovh"

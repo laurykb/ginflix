@@ -1,0 +1,6 @@
+[1/4] Running prechecks
+[PASS] Control-plane prechecks are healthy.
+[2/4] Reset previous Kyverno install (if any)
+[3/4] Installing Kyverno (minimal admission mode)
+Release "kyverno" does not exist. Installing it now.
+Error: cannot patch "cleanuppolicies.kyverno.io" with kind CustomResourceDefinition: CustomResourceDefinition.apiextensions.k8s.io "cleanuppolicies.kyverno.io" is invalid: status.storedVersions[0]: Invalid value: "v2": must appear in spec.versions && cannot patch "clustercleanuppolicies.kyverno.io" with kind CustomResourceDefinition: CustomResourceDefinition.apiextensions.k8s.io "clustercleanuppolicies.kyverno.io" is invalid: status.storedVersions[0]: Invalid value: "v2": must appear in spec.versions && cannot patch "policyexceptions.kyverno.io" with kind CustomResourceDefinition: CustomResourceDefinition.apiextensions.k8s.io "policyexceptions.kyverno.io" is invalid: status.storedVersions[0]: Invalid value: "v2": must appear in spec.versions && cannot patch "updaterequests.kyverno.io" with kind CustomResourceDefinition: CustomResourceDefinition.apiextensions.k8s.io "updaterequests.kyverno.io" is invalid: status.storedVersions[0]: Invalid value: "v2": must appear in spec.versions
