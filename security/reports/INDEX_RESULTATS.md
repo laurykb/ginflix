@@ -1,6 +1,12 @@
 # Index des resultats securite
 
-Liste des dossiers de preuves techniques (noms explicites).
+## 1) Traces CI (a presenter en priorite)
+
+- `rapport_traces_ci_20260309_080842`
+  - Preuves tangibles des ajouts CI (`Gitleaks`, `KICS`):
+  - snapshots workflows, checksums SHA256, inventaire fichiers, verification de coherence.
+
+## 2) Rapports actifs
 
 - `rapport_iac_trivy_config_20260309_045619`
   - Scan IaC/manifests Trivy.
@@ -12,7 +18,10 @@ Liste des dossiers de preuves techniques (noms explicites).
   - Premiere tentative finale Kyverno/Falco.
 - `rapport_kyverno_falco_tentative_2_20260309_061645`
   - Deuxieme tentative finale Kyverno/Falco (avec remediations).
-- `rapport_historique_20260309_015838`
+
+## 3) Archives
+
+- `archive/rapport_historique_20260309_015838`
   - Historique ancien conserve pour audit.
-- `rapport_historique_20260309_021312`
+- `archive/rapport_historique_20260309_021312`
   - Historique ancien conserve pour audit.

@@ -14,6 +14,7 @@ Ce document centralise la lecture des preuves techniques produites pendant le pr
 - `rapport_iac_<YYYYMMDD_HHMMSS>/`
 - `rapport_posture_<YYYYMMDD_HHMMSS>/`
 - `rapport_kyverno_falco_<YYYYMMDD_HHMMSS>/`
+- `rapport_traces_ci_<YYYYMMDD_HHMMSS>/`
 
 ## Lecture rapide
 
@@ -25,4 +26,5 @@ Ce document centralise la lecture des preuves techniques produites pendant le pr
 
 - Verification posture cluster.
 - Scans Trivy config + secrets.
+- Traces CI (workflows, checksums, inventaire).
 - Tentatives Kyverno/Falco avec causes d'echec tracees.

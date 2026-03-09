@@ -10,5 +10,5 @@ spec:
   selector:
     app: frontend
   ports:
-    - port: 80        # ce que verront ingress / reverse proxy
-      targetPort: 80  # port du conteneur nginx
+    - port: 80
+      targetPort: 80

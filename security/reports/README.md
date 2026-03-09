@@ -2,6 +2,12 @@
 
 Ce dossier contient les preuves techniques produites pendant les analyses de securite.
 
+## Structure recommandee
+
+- `rapport_*`: rapports actifs utilises pour la soutenance.
+- `rapport_traces_ci_*`: preuves CI (workflows, checksums, inventaire).
+- `archive/`: anciens rapports conserves pour audit, hors lecture prioritaire.
+
 ## Regle de lisibilite
 
 Chaque execution doit produire un dossier de resultat explicite avec:
@@ -13,6 +19,7 @@ Chaque execution doit produire un dossier de resultat explicite avec:
 ## Exemples de rapports
 
 - Trivy config / secrets
+- Traces CI (Gitleaks / KICS)
 - Verification posture cluster
 - Tentatives Kyverno / Falco
 
@@ -22,6 +29,13 @@ Commande recommandee (sans script):
 
 ```bash
 cd security/reports
+find . -mindepth 1 -maxdepth 1 -type d | sort -r
+```
+
+Commande pour les archives:
+
+```bash
+cd security/reports/archive
 find . -mindepth 1 -maxdepth 1 -type d | sort -r
 ```
 

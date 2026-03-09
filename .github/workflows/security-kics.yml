@@ -2,8 +2,6 @@ name: Security - KICS IaC Scan
 
 on:
   push:
-    branches:
-      - "**"
   pull_request:
   workflow_dispatch:
 
@@ -12,7 +10,7 @@ permissions:
 
 jobs:
   kics-scan:
-    name: KICS IaC Analysis
+    name: KICS
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

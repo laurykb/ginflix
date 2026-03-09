@@ -1,35 +1,32 @@
-# GINFLIX - Projet DevSecOps Kubernetes
+# GINFLIX
 
-Depot de projet etudiant (ecole d'ingenieur) pour deploiement d'une plateforme video sur Kubernetes, avec demarche DevSecOps documentee et auditable.
+Projet etudiant de plateforme video deployee sur Kubernetes.
 
-## Lecture recommandee
+## Lecture rapide
 
-1. `security/README.md` (vue securite globale)
-2. `security/STATUS.md` (etat d'avancement et decisions)
-3. `security/RESULTATS.md` (lecture des preuves)
+1. `security/README.md`
+2. `security/STATUS.md`
+3. `security/RESULTATS.md`
 
-## Structure principale
+## Arborescence utile
 
+- `namespace/`: namespace et base du cluster.
 - `backend/`, `frontend/`, `streamer/`, `database/`: composants applicatifs.
-- `ingress/`, `loadbalancer/`, `namespace/`, `secret/`: manifests d'infrastructure.
-- `security/`: documentation securite, procedures et rapports.
+- `ingress/`, `loadbalancer/`, `service-nodeport/`: exposition reseau.
+- `CiliumNetworkPolicies/`: segmentation reseau.
+- `metrics-server/`: prerequis HPA.
+- `secret/`: exemples de secrets Kubernetes.
+- `security/`: documentation et preuves.
 
-## Positionnement de qualite (niveau ecole d'ingenieur)
+## Fichiers centraux
 
-- Source de verite declarative: manifests Kubernetes + documentation.
-- Tracabilite des actions: preuves horodatees dans `security/reports/`.
-- Lisibilite de livraison: nomenclature explicite et documentation en francais.
-- Absence de scripts shell custom dans le livrable final.
-- Pipeline CI securite explicite et auditable (Gitleaks, KICS).
+- `config-map-ginflix.yaml`: ConfigMap principale.
+- `kind-cilium.yaml`: cluster Kind avec Cilium.
+- `.github/workflows/security-gitleaks.yml`: scan secrets en CI.
+- `.github/workflows/security-kics.yml`: scan IaC en CI.
 
-## Navigation sur la VM
+## Outils securite retenus
 
-```bash
-cd ~/ginflix/security
-ls
-```
-
-```bash
-cd ~/ginflix/security/reports
-find . -mindepth 1 -maxdepth 1 -type d | sort -r
-```
+- `Trivy`
+- `Gitleaks`
+- `KICS`

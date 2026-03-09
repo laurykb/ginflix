@@ -5,9 +5,6 @@ metadata:
   namespace: ginflix
   labels:
     app: frontend
-    security.ginflix.io/hardening: "enabled"
-  annotations:
-    security.ginflix.io/notes: "Durcissement compatible Nginx (sans drop ALL pour eviter regressions runtime)."
 spec:
   replicas: 2
   selector:
@@ -18,7 +15,6 @@ spec:
       labels:
         app: frontend
     spec:
-      # Ce frontend n'a pas besoin d'acces API Kubernetes.
       automountServiceAccountToken: false
       securityContext:
         seccompProfile:

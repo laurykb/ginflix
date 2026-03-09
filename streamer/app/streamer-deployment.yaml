@@ -5,9 +5,6 @@ metadata:
   namespace: ginflix
   labels:
     app: streamer
-    security.ginflix.io/hardening: "enabled"
-  annotations:
-    security.ginflix.io/notes: "Durcissement pod applique (seccomp, no privilege escalation, drop ALL)."
 spec:
   replicas: 2
   selector:
@@ -18,7 +15,6 @@ spec:
       labels:
         app: streamer
     spec:
-      # Ce service n'a pas besoin d'un token API Kubernetes dans le pod.
       automountServiceAccountToken: false
       securityContext:
         seccompProfile:

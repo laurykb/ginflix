@@ -6,7 +6,7 @@ metadata:
   labels:
     app: database
 spec:
-  type: ClusterIP   # interne uniquement (conforme au cahier des charges)
+  type: ClusterIP
   selector:
     app: database
   ports:
