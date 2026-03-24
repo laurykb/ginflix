@@ -1,3 +1,4 @@
+# Entrée publique site + API HTTP + HLS (uploads admin volumineux → proxy-body-size élevé).
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:

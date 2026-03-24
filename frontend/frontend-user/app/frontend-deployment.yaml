@@ -1,3 +1,4 @@
+# Site public (nginx). 2 replicas pour la dispo sur cluster multi-nœuds.
 apiVersion: apps/v1
 kind: Deployment
 metadata:

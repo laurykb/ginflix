@@ -1,30 +1,21 @@
-# Resultats et preuves
+# Preuves et rapports
 
-Ce document centralise la lecture des preuves techniques produites pendant le projet.
+Les sorties brutes des outils (json, txt, html) sont rangées par dossier **horodaté** sous `security/reports/`. L’idée : en soutenance, on peut rouvrir exactement ce qui a été exécuté.
 
-## Regles de lisibilite
+## Nommage des dossiers
 
-- Un dossier de rapport = une execution importante.
-- Noms explicites et horodates obligatoires.
-- Fichiers bruts conserves (json/html/txt).
-- Resume d'analyse present dans `security/STATUS.md`.
+Exemples utilisés sur le projet :
 
-## Nommage recommande
+- `rapport_iac_*` — Trivy sur la config  
+- `rapport_posture_*` — vérification de posture cluster  
+- `rapport_trivy_secrets_*` — détection de secrets dans les fichiers  
+- `rapport_kyverno_falco_*` — essais Kyverno / Falco  
+- `rapport_traces_ci_*` — copie d’éléments liés aux workflows GitHub  
 
-- `rapport_iac_<YYYYMMDD_HHMMSS>/`
-- `rapport_posture_<YYYYMMDD_HHMMSS>/`
-- `rapport_kyverno_falco_<YYYYMMDD_HHMMSS>/`
-- `rapport_traces_ci_<YYYYMMDD_HHMMSS>/`
+Les anciens jeux de résultats sont dans `security/reports/archive/`.
 
-## Lecture rapide
+## Ordre de lecture
 
-1. Lire `security/STATUS.md`.
-2. Ouvrir `security/reports/INDEX_RESULTATS.md`.
-3. Consulter le dossier de rapport vise.
-
-## Exemple de preuves de reference (session 09/03/2026)
-
-- Verification posture cluster.
-- Scans Trivy config + secrets.
-- Traces CI (workflows, checksums, inventaire).
-- Tentatives Kyverno/Falco avec causes d'echec tracees.
+1. `security/STATUS.md`  
+2. `security/reports/INDEX_RESULTATS.md`  
+3. Le dossier de rapport qui t’intéresse  

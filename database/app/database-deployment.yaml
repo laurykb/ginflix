@@ -1,3 +1,5 @@
+# MongoDB : service ClusterIP uniquement (pas d’Ingress). Une réplique + PVC suffisent pour le lab ;
+# le durcissement agressif est limité ici pour rester compatible avec l’image mongo officielle.
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -15,6 +17,7 @@ spec:
       labels:
         app: database
     spec:
+      automountServiceAccountToken: false
       containers:
         - name: mongo
           image: mongo:6.0

@@ -1,3 +1,4 @@
+# Référencé par l’Ingress via nginx.ingress.kubernetes.io/custom-headers (CSP ajustée à notre host).
 apiVersion: v1
 kind: ConfigMap
 metadata:

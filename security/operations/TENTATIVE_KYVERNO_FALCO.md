@@ -1,28 +1,23 @@
-# Tentative Kyverno / Falco
+# Kyverno / Falco — ce qu’on a essayé
 
-## Objectif
+On voulait voir si on pouvait ajouter un minimum de Kyverno + Falco sans faire tomber Ginflix.
 
-Valider si l'installation minimale de Kyverno et Falco est possible sans degrader la disponibilite.
+## Avant de lancer quoi que ce soit
 
-## Prechecks obligatoires
+- Les 3 nœuds en `Ready`
+- `kube-controller-manager` et `kube-scheduler` en `Ready`
+- Curl OK sur `/`, `/admin`, `/api/videos`
 
-- 3 noeuds `Ready`
-- `kube-controller-manager` `Ready`
-- `kube-scheduler` `Ready`
-- Application `200` sur `/`, `/admin`, `/api/videos`
+## Déroulé (à la main, pas de script)
 
-## Procedure manuelle (resume)
+1. `helm repo update`
+2. Install Kyverno léger
+3. Regarder les pods `kyverno` + webhooks
+4. Install Falco léger
+5. Pods / DaemonSet dans `falco`
+6. Retester l’app
+7. Garder les logs et `kubectl get` dans `security/reports/`
 
-1. Mettre a jour les repos Helm.
-2. Tenter Kyverno minimal.
-3. Verifier pods namespace `kyverno` + webhooks.
-4. Tenter Falco minimal.
-5. Verifier pods/daemonset namespace `falco`.
-6. Verifier impact applicatif.
-7. Archiver les sorties dans `security/reports/`.
+## Bilan au 09/03/2026
 
-## Etat actuel (09/03/2026)
-
-- Tentatives executees, installations non stabilisees.
-- Cause dominante: instabilite intermittente du control-plane (`kube-controller-manager` non Ready pendant la fenetre).
-- Decision: conserver Kyverno/Falco en `NEXT`, sans forcer en production etudiante tant que la stabilite infra n'est pas durable.
+Installations instables sur notre Kind : le control-plane lâchait par moments (`kube-controller-manager` plus Ready). Plutôt que bricoler en boucle la veille de la soutenance, on a documenté les essais et laissé Kyverno/Falco de côté pour ce rendu.

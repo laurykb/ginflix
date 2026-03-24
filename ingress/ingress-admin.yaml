@@ -1,3 +1,4 @@
+# SPA admin sous /admin : rewrite pour servir l’index nginx du pod frontend-admin.
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:

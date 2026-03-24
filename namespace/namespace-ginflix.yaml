@@ -1,3 +1,4 @@
+# Tout le déploiement Ginflix du TP vit dans ce namespace.
 apiVersion: v1
 kind: Namespace
 metadata:

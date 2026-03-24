@@ -1,5 +1,3 @@
-# Procedures securite
+# Procédures
 
-La documentation de reference est centralisee dans `security/README.md` pour conserver l'essentiel.
-
-Voir `security/operations/` pour les commandes d'exploitation sans scripts.
+Le fil conducteur est dans `security/README.md`. Les commandes utiles au quotidien sont dans `security/operations/`.

@@ -1,60 +1,37 @@
-# Statut DevSecOps - GINFLIX
+# État sécurité / explo — Ginflix
 
-Date de reference: 09/03/2026
+*Référence : 09/03/2026*
 
-## 1) Positionnement global
+## En bref
 
-Projet etudiant niveau ecole d'ingenieur: le socle est fonctionnel, securise sur les points majeurs, et documente avec preuves.
+Manifests durcis, secrets sortis des ConfigMap quand c’était pertinent, politiques Cilium en place, Ingress avec en-têtes de sécurité, CI Gitleaks + KICS. Les preuves sont dans `security/reports/` (voir aussi `reports/INDEX_RESULTATS.md`).
 
-Niveau de maturite actuel:
-- Bon niveau sur hardening manifests et hygiene secrets.
-- Niveau intermediaire sur politiques d'admission et runtime security (Kyverno/Falco), encore bloques par stabilite infra.
+## Ce qui est fait
 
-## 2) Ce qui est valide
+- Pods : `automountServiceAccountToken: false`, `allowPrivilegeEscalation: false`, `seccompProfile: RuntimeDefault`, `capabilities.drop` là où c’est compatible avec les images.
+- Données sensibles : migration vers des `Secret` Kubernetes là où il fallait.
+- Réseau : default deny Cilium + règles métier (DNS, ingress front, egress S3 / Keycloak, etc.).
+- Ingress : en-têtes type `X-Frame-Options`, `X-Content-Type-Options`, `CSP`, `Permissions-Policy`, `Referrer-Policy`.
+- CI : scans **Gitleaks** et **KICS** sur le dépôt.
 
-- Workloads durcis (`automountServiceAccountToken=false`, `allowPrivilegeEscalation=false`, `seccompProfile=RuntimeDefault`, `capabilities.drop` la ou compatible).
-- Secrets sensibles migres vers `Secret` K8s.
-- Segmentation reseau active (default deny + exceptions metier).
-- Headers HTTP de securite actifs au niveau ingress (`X-Frame-Options`, `X-Content-Type-Options`, `CSP`, `Permissions-Policy`, `Referrer-Policy`).
-- Industrialisation CI active via GitHub Actions avec outils open source cibles (`Gitleaks`, `KICS`).
+## Rapports utiles (session VM)
 
-## 3) Resultats de securite (preuves)
-
-Rapports principaux (VM):
 - `security/reports/rapport_iac_trivy_config_20260309_045619/`
 - `security/reports/rapport_posture_cluster_20260309_051953/`
 - `security/reports/rapport_trivy_secrets_20260309_052025/`
 - `security/reports/rapport_kyverno_falco_tentative_1_20260309_061346/`
 - `security/reports/rapport_kyverno_falco_tentative_2_20260309_061645/`
 
-## 4) Disponibilite
+## Vérifications HTTP (chemin nominal)
 
-Checks fonctionnels valides:
-- `/` -> `200`
-- `/admin` -> `200`
-- `/api/videos` -> `200`
+- `/` → 200  
+- `/admin` → 200  
+- `/api/videos` → 200  
 
-## 5) Point de blocage majeur
+## Kyverno / Falco
 
-Kyverno/Falco non promus en exploitation:
-- Causes constatees: instabilite intermittente du control-plane, notamment `kube-controller-manager` non Ready pendant les fenetres de tentative.
-- Decision: conserver ces composants en `NEXT`, sans forcer en production etudiante.
+Non laissés en prod sur notre Kind : le control-plane a eu des phases où `kube-controller-manager` n’était pas Ready pendant les essais — on documente les tentatives plutôt que de forcer l’outillage.
 
-## 6) Ecarts restants pour un niveau "tres bon"
+## Pour la soutenance
 
-- Stabiliser durablement le control-plane avant nouvelle tentative Kyverno/Falco.
-
-## 7) Decision de livraison
-
-Le projet est livrable en etat: 
-- lisible,
-- tracable,
-- et techniquement defendable en soutenance.
-
-La feuille de route restante est claire et argumentee par preuves.
-
-## 8) Complements de professionnalisation (09/03/2026)
-
-- Cadrage volontairement minimaliste pour limiter la complexite de soutenance.
-- Choix outillage open source connu: `Trivy`, `Gitleaks`, `KICS`.
-- Documentation centralisee dans `security/README.md`.
+On peut expliquer : choix des ressources K8s, réseau, durcissement, limites du lab Kind, et ce qu’il faudrait pour aller plus loin (control-plane stable, admission controller, runtime security).

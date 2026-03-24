@@ -1,3 +1,4 @@
+# API gRPC + HTTP (Ingress /api). 2 replicas pour survivre à la perte d’un nœud Kind.
 apiVersion: apps/v1
 kind: Deployment
 metadata:

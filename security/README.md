@@ -1,41 +1,25 @@
-# Securite GINFLIX
+# Sécurité — Ginflix
 
-Ce dossier contient les elements securite du projet.
+Documentation et **preuves** (captures de commandes, sorties d’outils) produites pendant le projet.
 
-## Objectif
+## Où regarder
 
-- Appliquer des bonnes pratiques securite sur Kubernetes.
-- Conserver des preuves simples a verifier.
+| Fichier / dossier | Contenu |
+|-------------------|---------|
+| `security/STATUS.md` | Synthèse : ce qui est en place, ce qui bloque, liens vers les rapports |
+| `security/RESULTATS.md` | Comment lire les dossiers de preuves |
+| `security/operations/` | Notes d’essais (ex. Kyverno / Falco) |
+| `security/reports/` | Rapports horodatés + `INDEX_RESULTATS.md` |
+| `security/RAPPORT_SECURITE_VM_20260309.md` | Rapport récap sur la VM (session du 09/03/2026) |
 
-## Fichiers importants
+## Outils
 
-- Etat d'avancement: `security/STATUS.md`
-- Exploitation des preuves: `security/RESULTATS.md`
-- Operations (sans scripts): `security/operations/`
-- Rapports techniques: `security/reports/`
-- Rapport executif: `security/RAPPORT_SECURITE_VM_20260309.md`
+- **Trivy** — config / secrets sur les manifests  
+- **Gitleaks** — CI, fuites de secrets dans le dépôt  
+- **KICS** — CI, analyse IaC Kubernetes  
 
-## Outils retenus
+Workflows : `.github/workflows/security-gitleaks.yml`, `security-kics.yml` — config Gitleaks : `.gitleaks.toml`.
 
-- `Trivy`: scan config/secrets.
-- `Gitleaks`: detection de secrets en CI.
-- `KICS`: analyse IaC/Kubernetes en CI.
+## Point d’attention
 
-Workflows CI actifs:
-- `.github/workflows/security-gitleaks.yml`
-- `.github/workflows/security-kics.yml`
-
-Configuration associee:
-- `.gitleaks.toml`
-
-## Etat actuel
-
-- Hardening workloads applique sur les deploiements critiques.
-- Hygiene secrets appliquee (Secret K8s, nettoyage ConfigMap).
-- Kyverno/Falco non promus en exploitation a cause d'instabilite control-plane intermittente.
-
-## Regles de lecture
-
-- Lire d'abord `security/STATUS.md`.
-- Ensuite `security/reports/INDEX_RESULTATS.md`.
-- Les anciens rapports sont dans `security/reports/archive/`.
+Kyverno et Falco ont été **testés** mais **non gardés** en exploitation sur notre cluster : instabilités côté control-plane (détails dans `STATUS.md`). Le reste (durcissement des pods, secrets, Cilium, headers Ingress, CI) reste la base défendable en soutenance.

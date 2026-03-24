@@ -1,3 +1,4 @@
+# URLs publiques vues par le navigateur (même host que l’Ingress). Le préfixe ginflix10 = notre instance de groupe sur la VM TP.
 apiVersion: v1
 kind: ConfigMap
 metadata:

@@ -1,7 +1,7 @@
-title = "GINFLIX gitleaks config"
+title = "ginflix — gitleaks"
 
 [allowlist]
-description = "False positives or controlled files"
+description = "Faux positifs / dossiers de preuves"
 paths = [
   '''security/reports/''',
   '''kind-10-private-key\.pem''',

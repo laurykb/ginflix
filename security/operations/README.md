@@ -1,15 +1,12 @@
-# Operations securite (sans scripts)
+# Opérations (sans scripts maison)
 
-Ce dossier regroupe les commandes d'exploitation sous forme de procedures Markdown.
-Objectif: un livrable lisible, auditable et reproductible sans scripts bash custom.
+Notes prises pendant le TP : commandes copier-coller pour retester l’Ingress, le cluster, les en-têtes HTTP.
 
 ## Fichiers
 
-- `COMMANDES_VM.md`: commandes de verification et d'exploitation sur la VM.
-- `TENTATIVE_KYVERNO_FALCO.md`: protocole de tentative et diagnostic associe.
+- `COMMANDES_VM.md` — checks depuis la VM (curl, kubectl).
+- `TENTATIVE_KYVERNO_FALCO.md` — ce qu’on a essayé avec Kyverno/Falco et pourquoi on a arrêté.
 
-## Principe
+## Habitude
 
-- Pas de scripts shell versionnes.
-- Les actions se font via manifests Kubernetes et commandes explicites documentees.
-- Toute execution importante doit etre tracee dans `security/STATUS.md` et `security/reports/`.
+On garde les preuves dans `security/reports/` et un résumé dans `security/STATUS.md` quand on refait une grosse manœuvre.

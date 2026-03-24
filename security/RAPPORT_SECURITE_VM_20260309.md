@@ -1,101 +1,41 @@
-# Rapport de securisation Kubernetes - GINFLIX (VM)
+# Rapport sécurité — Ginflix (VM)
 
-Date: 09/03/2026  
-Perimetre: cluster Kubernetes GINFLIX sur VM (`~/ginflix`)  
-Objectif: fournir une trace presentable des changements, ameliorations, tests et resultats.
+**Date :** 09/03/2026  
+**Périmètre :** cluster Kind / manifests déployés sur la VM (`~/ginflix`).
 
-## 1) Resume executif
+## Synthèse
 
-- La demarche a ete basculee en mode `manifest-first` et `documentation-first`.
-- Les durcissements workloads et hygiene secrets sont en place et appliques sur la VM.
-- Les controles OWASP applicables immediatement ont ete executes avec preuves:
-  - scan IaC/manifests
-  - verification posture cluster
-  - secrets detection
-- Disponibilite applicative preservee en sortie de travaux (`/`, `/admin`, `/api/videos` en `200` via le chemin HTTP de contournement).
+On a surtout travaillé les **manifests** : durcissement des pods, secrets dans des `Secret` plutôt que dans des ConfigMap pour ce qui est sensible, Cilium, en-têtes sur l’Ingress. Les scans (Trivy config, Trivy secrets, script de posture) sont archivés dans `security/reports/` avec la date dans le nom du dossier. À la fin des modifs, les URLs testées en HTTP donnaient toujours du **200** sur `/`, `/admin` et `/api/videos`.
 
-## 2) Ce qui a change (trace de configuration)
-
-### Documentation et gouvernance
-
-- `security/README.md`
-  - formalisation de la source de verite: manifests + docs
-  - scripts shell repositionnes comme outillage operationnel optionnel
-- `security/STATUS.md`
-  - matrice OWASP priorisee
-  - execution reelle sur VM (preuves, resultats, points restants)
-
-### Manifests Kubernetes durcis
+## Fichiers Kubernetes modifiés (durcissement)
 
 - `backend/app/backend-deployment.yaml`
 - `frontend/frontend-user/app/frontend-deployment.yaml`
 - `frontend/frontend-admin/app/frontend-admin-deployment.yaml`
 - `streamer/app/streamer-deployment.yaml`
 
-Ameliorations appliquees:
-- `automountServiceAccountToken: false`
-- `seccompProfile: RuntimeDefault`
-- `allowPrivilegeEscalation: false`
-- `capabilities.drop: [ALL]` la ou compatible
-- consommation des secrets via `Secret` (et non ConfigMap pour les valeurs sensibles)
+Réglages typiques : `automountServiceAccountToken: false`, `seccompProfile: RuntimeDefault`, `allowPrivilegeEscalation: false`, `capabilities.drop: [ALL]` quand l’image le permet.
 
-## 3) Tests et scans executes (avec preuves)
+## Preuves (où les retrouver)
 
-### 3.1 Scan IaC/manifests (OWASP - misconfiguration)
+| Contrôle | Dossier / fichier |
+|----------|-------------------|
+| Trivy config (IaC) | `security/reports/rapport_iac_trivy_config_20260309_045619/` — à l’époque synthèse notée : `HIGH_CRITICAL_COUNT=22` |
+| Posture cluster | `security/reports/rapport_posture_cluster_20260309_051953/verify-cluster-security.txt` — `28 pass, 0 fail` |
+| Secrets dans les fichiers | `security/reports/rapport_trivy_secrets_20260309_052025/` — `SECRETS_FOUND=0` |
 
-- Rapport: `security/reports/20260309_045619/trivy-config.json`
-- Synthese: `HIGH_CRITICAL_COUNT=22`
+*(Les chemins `security/reports/20260309_*` sans préfixe `rapport_…` dans une ancienne version de ce rapport étaient incorrects.)*
 
-### 3.2 Verification posture cluster
+## HTTP (smoke)
 
-- Rapport de reference: `security/reports/20260309_051953/verify-cluster-security.txt`
-- Resultat: `Summary: 28 pass, 0 fail`
+- `/` → 200  
+- `/admin` → 200  
+- `/api/videos` → 200  
 
-### 3.3 Secrets detection
+## Reste à faire si on prolonge le projet
 
-- Rapport: `security/reports/20260309_052025/trivy-secrets.json`
-- Resultat: `SECRETS_FOUND=0`
+- Surveiller le **control-plane** sur Kind avant de réessayer Kyverno / Falco (voir dossiers `rapport_kyverno_falco_tentative_*`).
+- Pousser plus loin **Pod Security** (`runAsNonRoot`, etc.) en testant bien les images nginx / binaires fournis.
+- Enchaîner admission / runtime seulement quand le cluster tient stable plusieurs heures d’affilée.
 
-
-## 4) Disponibilite service (preuve fonctionnelle)
-
-Verification externe (HTTP workaround):
-- `/` -> `200`
-- `/admin` -> `200`
-- `/api/videos` -> `200`
-
-## 5) Risques residuels et plan de remediation
-
-### Priorite 1 - Stabilite infra
-
-Objectif: maintenir une disponibilite stable du cluster et des services.
-
-Actions:
-- conserver la surveillance du control-plane
-- valider systematiquement les chemins applicatifs critiques
-
-### Priorite 2 - Pod Security restricted complet
-
-Objectif: reduire les warnings PSS.
-
-Actions:
-- tester `runAsNonRoot` et ajuster images front/back si necessaire
-- evaluer `capabilities.drop: [ALL]` pour frontends sans casser Nginx
-- valider par rollout + smoke tests + verify script.
-
-### Priorite 3 - Admission et runtime controles avances
-
-Objectif: finaliser Kyverno/Falco sans destabiliser le cluster.
-
-Actions:
-- conserver les prechecks de stabilite control-plane
-- deploiement seulement sur fenetre stable continue
-- commencer en mode audit/observation.
-
-## 6) Capacite de presentation
-
-Ce rapport est exploitable en soutenance/projet car il relie:
-- les changements techniques (fichiers modifies),
-- les preuves de verification (rapports horodates),
-- les resultats de securite quantifies,
-- et le plan de remediation restant.
+La doc à jour du volet sécurité est dans `security/README.md` et `security/STATUS.md`.

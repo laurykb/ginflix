@@ -1,3 +1,4 @@
+# Interface admin (nginx) — auth Keycloak côté JS, pas dans ce YAML.
 apiVersion: apps/v1
 kind: Deployment
 metadata:

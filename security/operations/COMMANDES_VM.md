@@ -1,6 +1,8 @@
-# Commandes VM de reference
+# Commandes sur la VM
 
-## Verification service
+`172.18.0.200` = IP qu’on utilise pour joindre l’Ingress depuis la VM (MetalLB / nginx selon ton setup).
+
+## Vérifier l’app (HTTP)
 
 ```bash
 for p in / /admin /api/videos; do
@@ -9,7 +11,7 @@ for p in / /admin /api/videos; do
 done
 ```
 
-## Verification cluster
+## Cluster
 
 ```bash
 kubectl get nodes
@@ -17,7 +19,7 @@ kubectl -n kube-system get pods | egrep "kube-controller-manager|kube-scheduler|
 kubectl -n ginflix get pods -o wide
 ```
 
-## Verification hardening workloads
+## Manifests déployés (aperçu)
 
 ```bash
 kubectl -n ginflix get deploy backend frontend frontend-admin streamer -o yaml
@@ -29,7 +31,7 @@ kubectl -n ginflix get deploy backend frontend frontend-admin streamer -o yaml
 curl -sS -I -H "Host: ginflix10.gin-telecom.ovh" http://172.18.0.200/ | grep -Ei "x-frame-options|x-content-type-options|content-security-policy|permissions-policy|referrer-policy"
 ```
 
-## Index des rapports
+## Lister les dossiers de rapports
 
 ```bash
 cd ~/ginflix/security/reports
