@@ -8,7 +8,7 @@ Dépôt des manifests Kubernetes pour **Ginflix** : mini plateforme de streaming
 
 Le travail consiste à se placer en **ingénieur DevOps** : le code applicatif et les images de conteneurs sont fournis (registry interne à Télécom) ; **votre livrable**, c’est le déploiement sur Kubernetes : choix et configuration des ressources (Deployments, Services, Namespace, Ingress, politiques réseau, réplicas, probes, etc.).
 
-Deux briques **hors cluster Kind** sont déjà assurées par d’autres équipes : vous n’avez pas à les déployer, seulement à **y connecter** l’application (endpoints, identifiants, secrets).
+Deux briques **hors cluster Kind** sont déjà assurées par les professeurs : nous n'avons pas à les déployer, seulement à se connecter à l’application (endpoints, identifiants, secrets).
 
 ---
 
@@ -28,7 +28,7 @@ Un utilisateur accède au site Ginflix (ex. `https://ginflix.gin-telecom.ovh`) e
 
 ### Administration
 
-L’administrateur utilise une **URL distincte** (ex. `https://admin.ginflix.gin-telecom.ovh`) et est servi par **frontend-admin** (nginx + JS), avec parcours d’authentification **Keycloak** (IAM) : redirection éventuelle, puis **JWT** en cas de succès. Le JS admin appelle une **API gRPC d’administration** sur le backend ; le backend valide le token auprès de l’IAM. Cette API permet d’ajouter des vidéos : transcodage **HLS** via **FFmpeg**, envoi des segments et d’une miniature vers le bucket S3, puis création d’une entrée en base. Une fois en ligne, la lecture peut être testée (y compris via le streamer).
+L’administrateur (les proffesseurs) utilisent une **URL distincte** (ex. `https://admin.ginflix.gin-telecom.ovh`) et est servi par **frontend-admin** (nginx + JS), avec parcours d’authentification **Keycloak** (IAM) : redirection éventuelle, puis **JWT** en cas de succès. Le JS admin appelle une **API gRPC d’administration** sur le backend ; le backend valide le token auprès de l’IAM. Cette API permet d’ajouter des vidéos : transcodage **HLS** via **FFmpeg**, envoi des segments et d’une miniature vers le bucket S3, puis création d’une entrée en base. Une fois en ligne, la lecture peut être testée (y compris via le streamer).
 
 > Les noms de domaine ci-dessus sont **exemples** issus de l’énoncé ; à adapter à votre environnement et à votre Ingress.
 
