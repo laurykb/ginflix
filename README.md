@@ -34,7 +34,7 @@ L’administrateur (les proffesseurs) utilisent une **URL distincte** (ex. `http
 
 ---
 
-## Services externes (rappel)
+## Services externes
 
 | Service | Rôle |
 |--------|------|
