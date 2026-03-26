@@ -1,12 +1,11 @@
 # Ginflix
-
-Dépôt des manifests Kubernetes pour **Ginflix** : mini plateforme de streaming VOD déployée sur un cluster **Kind** (Kubernetes in Docker), dans le cadre d’un projet DevOps.
+**Ginflix** : mini plateforme de streaming VOD déployée sur un cluster **Kind** (Kubernetes in Docker), dans le cadre d’un projet DevOps.
 
 ---
 
 ## Contexte du projet
 
-Le travail consiste à se placer en **ingénieur DevOps** : le code applicatif et les images de conteneurs sont fournis (registry interne à Télécom) ; **votre livrable**, c’est le déploiement sur Kubernetes : choix et configuration des ressources (Deployments, Services, Namespace, Ingress, politiques réseau, réplicas, probes, etc.).
+Le travail consiste à se placer en **ingénieur DevOps** : le code applicatif et les images de conteneurs sont fournis (registry interne à Télécom) ; **le livrable**, c’est le déploiement sur Kubernetes : choix et configuration des ressources (Deployments, Services, Namespace, Ingress, politiques réseau, réplicas, probes, etc.).
 
 Deux briques **hors cluster Kind** sont déjà assurées par les professeurs : nous n'avons pas à les déployer, seulement à se connecter à l’application (endpoints, identifiants, secrets).
 
